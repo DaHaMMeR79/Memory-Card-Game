@@ -1,0 +1,96 @@
+<!--code modified from original at freeCodeCamp.org, https://www.youtube.com/watch?v=ZniVgo8U7ek-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title><!--title of the page-->
+    <link rel="stylesheet" href="MemoryGame.css"><!--attaches css file to html page-->
+    <script defer src="MemoryGame.js"></script><!--attaches javascript file to the html page-->
+</head>
+<body>
+		<!-- keep the tag below; it is replaced with code from the deploy script -->
+		<!--start-cut-->
+		<audio id="audio1" src="assets3/Cardflip.mp3"></audio>
+		<audio id="audio2" src="assets3/wrongmatch.mp3"></audio>
+		<audio id="audio3" src="assets3/cardmatch.mp3"></audio>
+    <div id="over">Game Over!</div>
+		<section id="container" class="contain">
+	    <table>
+	        <tr>
+	          <td id="cRound">Current Round: 1</td>
+	          <td id="cMatch">Cards Matched: 0</td>
+	        </tr>
+	    </table>
+	    <section class="inUse"><!--Game set as section of web page-->
+	        <div class="memory-card" id="0" data-framework="Pair1"><!--sets up card-->
+	            <img class="front" src="assets3/Cat1_V2.svg" alt="1"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="1"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card" id="1" data-framework="Pair1"><!--sets up card-->
+	            <img class="front" src="assets3/Cat1_V2.svg" alt="1"><!--charcoal for test-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="1"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card" id="2" data-framework="Pair2"><!--sets up card-->
+	            <img class="front" src="assets3/ScratchingPost.svg" alt="2"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="2"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card" id="3" data-framework="Pair2"><!--sets up card-->
+	            <img class="front" src="assets3/ScratchingPost.svg" alt="2"><!--orange for test-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="2"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="4" data-framework="Pair3"><!--sets up card-->
+	            <img class="front" src="assets3/Cat3_V2.svg" alt="3"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="3"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="5" data-framework="Pair3"><!--sets up card-->
+	            <img class="front" src="assets3/Cat3_V2.svg" alt="3"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="3"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="6" data-framework="Pair4"><!--sets up card-->
+	            <img class="front" src="assets3/ToyMouse.svg" alt="4"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="4"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="7" data-framework="Pair4"><!--sets up card-->
+	            <img class="front" src="assets3/ToyMouse.svg" alt="4"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="4"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="8" data-framework="Pair5"><!--sets up card-->
+	            <img class="front" src="assets3/Cat2_V2.svg" alt="5"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="5"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="9" data-framework="Pair5"><!--sets up card-->
+	            <img class="front" src="assets3/Cat2_V2.svg" alt="5"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="5"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="10" data-framework="Pair6"><!--sets up card-->
+	            <img class="front" src="assets3/Cat5_v2.svg" alt="6"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="6"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="11" data-framework="Pair6"><!--sets up card-->
+	            <img class="front" src="assets3/Cat5_v2.svg" alt="6"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="6"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="12" data-framework="Pair7"><!--sets up card-->
+	            <img class="front" src="assets3/Cat4_v2.svg" alt="7"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="7"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="13" data-framework="Pair7"><!--sets up card-->
+	            <img class="front" src="assets3/Cat4_v2.svg" alt="7"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="7"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="14" data-framework="Pair8"><!--sets up card-->
+	            <img class="front" src="assets3/Cat6_v2.svg" alt="8"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="8"><!--sets card's back side-->
+	        </div>
+	        <div class="memory-card noUse" id="15" data-framework="Pair8"><!--sets up card-->
+	            <img class="front" src="assets3/Cat6_v2.svg" alt="8"><!--sets card's front side-->
+	            <img class="back" src="assets3/MoonCat.svg" alt ="8"><!--sets card's back side-->
+	        </div>
+	    </section>
+		</section>
+		<!--end-cut-->
+		<!-- keep the tag above; it is replaced with code from the deploy script -->
+</body>
+</html>
